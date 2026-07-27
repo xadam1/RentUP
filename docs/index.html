@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentUP - Interní nástroj</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/RentUP_Icon.png">
+    <script>
+        const translations = {
+            'cs': {
+                't-title': 'Interní nástroj pro správu portfolia',
+                't-subtitle': 'Aplikace navržená pro nás a naše kolegy k evidenci AUM a produkčních metrik.',
+                't-cta': 'Přejít ke stažení <i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i>',
+                't-alert-title': 'Aplikace je v aktivním vývoji',
+                't-alert-text': 'RentUP se stále vyvíjí. Stávající funkce se mohou měnit, upravovat a do budoucna budou přibývat další. Nástroj vzniká postupně podle našich interních potřeb a zpětné vazby.',
+                't-desc': 'RentUP je desktopová aplikace vytvořená pro finanční poradce a manažery v naší síti. Jejím hlavním cílem je poskytnout přehled o spravovaném majetku klientů (AUM), zjednodušit vyhodnocování produkčních metrik a automatizovat výpočty pasivních příjmů. Slouží k tomu, abychom měli data na jednom místě a mohli vizualizovat náš budoucí růst.',
+                't-feat-title': 'Co to aktuálně umí?',
+                't-f1-title': 'AUM Dashboard',
+                't-f1-text': 'Přehledný řídící panel pro sledování celkového majetku pod správou (AUM), projekce pasivního příjmu a distribuce bodů pomocí interaktivních grafů.',
+                't-f2-title': 'Dynamické vzorce',
+                't-f2-text': 'Možnost definovat si vlastní matematické vzorce pro každý produkt (např. pro výpočet provizí nebo pasivního příjmu).',
+                't-f3-title': 'Historické trendy',
+                't-f3-text': 'Automatické ukládání historie změn portfolia. Můžete tak vizualizovat dlouhodobé trendy vývoje a sledovat jak váš klientský kmen roste.',
+                't-f4-title': 'Projekce budoucnosti',
+                't-f4-text': 'Modul pro simulaci a odhad budoucího vývoje portfolia a příjmů na základě aktuálních dat.',
+                't-inst-title': 'Stažení a instalace',
+                't-inst-sub': 'Aplikace běží lokálně a pro základní fungování nevyžaduje internetové připojení. Vyberte svůj operační systém:',
+                't-mac-alert-title': 'Proč instalovat přes Terminál?',
+                't-mac-alert-text': 'RentUP zatím nedisponuje placeným vývojářským programem od Applu. Novější verze macOS (kvůli ochraně Gatekeeper) proto běžně blokují spuštění aplikace s varováním, že pochází od "neznámého vývojáře". Níže uvedený postup přes Terminál aplikaci automaticky stáhne a zároveň jí udělí potřebnou výjimku pro bezpečné spuštění.',
+                't-step-1': '1. Stiskněte <strong>Cmd (⌘) + Mezerník</strong> pro otevření vyhledávání Spotlight.',
+                't-step-2': '2. Napište <strong>Terminál</strong> a stiskněte Enter.',
+                't-step-3': '3. Zkopírujte příkaz níže, vložte ho do Terminálu (Cmd + V) a stiskněte Enter.',
+                't-copy-cmd': 'Kopírovat příkaz',
+                't-win-desc': 'Stáhněte si ZIP archiv, rozbalte jej kamkoliv v počítači a spusťte soubor <code>RentUP.exe</code>. Žádná zdlouhavá instalace není potřeba.',
+                't-win-btn': 'Stáhnout pro Windows (.zip)',
+                't-lin-desc': 'Stáhněte si archiv pro Linux, rozbalte jej a spusťte binární soubor <code>RentUP</code>.',
+                't-lin-btn': 'Stáhnout pro Linux (.zip)',
+                't-footer-credits': 'Vytvořili Jan Adam & Mojmír Dvořáček'
+            },
+            'en': {
+                't-title': 'Internal Portfolio Management Tool',
+                't-subtitle': 'Application designed for us and our colleagues to track AUM and production metrics.',
+                't-cta': 'Go to Download <i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i>',
+                't-alert-title': 'Application is in active development',
+                't-alert-text': 'RentUP is constantly evolving. Existing features may change or be modified, and new ones will be added in the future. The tool is being built progressively based on our internal needs and feedback.',
+                't-desc': 'RentUP is a desktop application created for financial advisors and managers in our network. Its main goal is to provide an overview of Assets Under Management (AUM), simplify the evaluation of production metrics, and automate passive income calculations. It helps us keep data in one place and visualize our future growth.',
+                't-feat-title': 'Current Features',
+                't-f1-title': 'AUM Dashboard',
+                't-f1-text': 'A clear dashboard for tracking total Assets Under Management (AUM), passive income projections, and point distributions using interactive charts.',
+                't-f2-title': 'Dynamic Formulas',
+                't-f2-text': 'The ability to define custom mathematical formulas for each product (e.g., for calculating commissions or passive income).',
+                't-f3-title': 'Historical Trends',
+                't-f3-text': 'Automatic saving of portfolio change history. You can visualize long-term development trends and track how your client base is growing.',
+                't-f4-title': 'Future Projections',
+                't-f4-text': 'A module for simulating and estimating future portfolio and income development based on current data.',
+                't-inst-title': 'Download and Installation',
+                't-inst-sub': 'The application runs locally and does not require an internet connection for basic functionality. Choose your operating system:',
+                't-mac-alert-title': 'Why install via Terminal?',
+                't-mac-alert-text': 'RentUP does not yet have a paid Apple Developer program. Therefore, newer versions of macOS (due to Gatekeeper protection) normally block the application from launching, warning that it comes from an "unknown developer". The Terminal procedure below automatically downloads the application and grants it the necessary exception for safe launch.',
+                't-step-1': '1. Press <strong>Cmd (⌘) + Space</strong> to open Spotlight search.',
+                't-step-2': '2. Type <strong>Terminal</strong> and press Enter.',
+                't-step-3': '3. Copy the command below, paste it into the Terminal (Cmd + V) and press Enter.',
+                't-copy-cmd': 'Copy command',
+                't-win-desc': 'Download the ZIP archive, extract it anywhere on your computer, and run the <code>RentUP.exe</code> file. No tedious installation is needed.',
+                't-win-btn': 'Download for Windows (.zip)',
+                't-lin-desc': 'Download the archive for Linux, extract it, and run the <code>RentUP</code> binary.',
+                't-lin-btn': 'Download for Linux (.zip)',
+                't-footer-credits': 'Created by Jan Adam & Mojmír Dvořáček'
+            }
+        };
+
+        let currentLang = 'cs';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            for (const key in translations[lang]) {
+                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                elements.forEach(el => {
+                    el.innerHTML = translations[lang][key];
+                });
+            }
+        }
+
+        function copyCommand() {
+            const cmd = document.getElementById("install-cmd").innerText;
+            navigator.clipboard.writeText(cmd).then(() => {
+                const btn = document.getElementById("copy-btn");
+                const originalText = translations[currentLang]['t-copy-cmd'];
+                
+                btn.innerHTML = currentLang === 'cs' ? 'Zkopírováno!' : 'Copied!';
+                btn.classList.add("copied");
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove("copied");
+                }, 2000);
+            });
+        }
+
+        function selectOS(os) {
+            document.querySelectorAll('.os-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.os-tab').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(`os-${os}`).classList.add('active');
+            document.querySelector(`.os-tab[data-os="${os}"]`).classList.add('active');
+        }
+
+        window.onload = () => {
+            setLanguage('cs');
+            selectOS('mac'); // Default selected OS
+        };
+    </script>
+</head>
+<body>
+    <div class="grid-background"></div>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="cs" onclick="setLanguage('cs')">CZ</button>
+        <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <img src="assets/RentUP_Logo_White.png" alt="RentUP Logo" class="main-logo">
+            <h1 class="title" data-i18n="t-title">Interní nástroj pro správu portfolia</h1>
+            <p class="subtitle" data-i18n="t-subtitle">Aplikace navržená pro nás a naše kolegy k evidenci AUM a produkčních metrik.</p>
+            
+            <!-- Call to action button -->
+            <a href="#download-section" class="cta-button" data-i18n="t-cta">Přejít ke stažení <i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i></a>
+        </header>
+
+        <main>
+            <div class="alert-box glass-panel">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <strong data-i18n="t-alert-title">Aplikace je v aktivním vývoji</strong>
+                    <p data-i18n="t-alert-text">RentUP se stále vyvíjí. Stávající funkce se mohou měnit, upravovat a do budoucna budou přibývat další. Nástroj vzniká postupně podle našich interních potřeb a zpětné vazby.</p>
+                </div>
+            </div>
+
+            <section class="description-section">
+                <p data-i18n="t-desc">
+                    RentUP je desktopová aplikace vytvořená pro finanční poradce a manažery v naší síti. Jejím hlavním cílem je poskytnout přehled o spravovaném majetku klientů (AUM), zjednodušit vyhodnocování produkčních metrik a automatizovat výpočty pasivních příjmů. Slouží k tomu, abychom měli data na jednom místě a mohli vizualizovat náš budoucí růst.
+                </p>
+            </section>
+
+            <section class="features">
+                <h2 class="section-title" data-i18n="t-feat-title">Co to aktuálně umí?</h2>
+                <div class="features-grid">
+                    <div class="glass-panel feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3 data-i18n="t-f1-title">AUM Dashboard</h3>
+                        <p data-i18n="t-f1-text">Přehledný řídící panel pro sledování celkového majetku pod správou (AUM), projekce pasivního příjmu a distribuce bodů pomocí interaktivních grafů.</p>
+                    </div>
+                    <div class="glass-panel feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <h3 data-i18n="t-f2-title">Dynamické vzorce</h3>
+                        <p data-i18n="t-f2-text">Možnost definovat si vlastní matematické vzorce pro každý produkt (např. pro výpočet provizí nebo pasivního příjmu).</p>
+                    </div>
+                    <div class="glass-panel feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <h3 data-i18n="t-f3-title">Historické trendy</h3>
+                        <p data-i18n="t-f3-text">Automatické ukládání historie změn portfolia. Můžete tak vizualizovat dlouhodobé trendy vývoje a sledovat jak váš klientský kmen roste.</p>
+                    </div>
+                    <div class="glass-panel feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <h3 data-i18n="t-f4-title">Projekce budoucnosti</h3>
+                        <p data-i18n="t-f4-text">Modul pro simulaci a odhad budoucího vývoje portfolia a příjmů na základě aktuálních dat.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="download-section" class="glass-panel install-section">
+                <h2 class="section-title" data-i18n="t-inst-title">Stažení a instalace</h2>
+                <p class="install-sub" data-i18n="t-inst-sub">Aplikace běží lokálně a pro základní fungování nevyžaduje internetové připojení. Vyberte svůj operační systém:</p>
+
+                <div class="os-tabs">
+                    <button class="os-tab active" data-os="mac" onclick="selectOS('mac')">
+                        <i class="fa-brands fa-apple" style="font-size: 20px;"></i> macOS
+                    </button>
+                    <button class="os-tab" data-os="windows" onclick="selectOS('windows')">
+                        <i class="fa-brands fa-windows" style="font-size: 20px;"></i> Windows
+                    </button>
+                    <button class="os-tab" data-os="linux" onclick="selectOS('linux')">
+                        <i class="fa-brands fa-linux" style="font-size: 20px;"></i> Linux
+                    </button>
+                </div>
+
+                <!-- macOS Content -->
+                <div id="os-mac" class="os-content active">
+                    <div class="info-alert">
+                        <i class="fa-solid fa-circle-info" style="font-size: 24px; color: #38bdf8; margin-top: 2px;"></i>
+                        <div>
+                            <strong data-i18n="t-mac-alert-title">Proč instalovat přes Terminál?</strong>
+                            <p data-i18n="t-mac-alert-text">RentUP zatím nedisponuje placeným vývojářským programem od Applu. Novější verze macOS (kvůli ochraně Gatekeeper) proto běžně blokují spuštění aplikace s varováním, že pochází od "neznámého vývojáře". Níže uvedený postup přes Terminál aplikaci automaticky stáhne a zároveň jí udělí potřebnou výjimku pro bezpečné spuštění.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="steps">
+                        <p data-i18n="t-step-1">1. Stiskněte <strong>Cmd (⌘) + Mezerník</strong> pro otevření vyhledávání Spotlight.</p>
+                        <p data-i18n="t-step-2">2. Napište <strong>Terminál</strong> a stiskněte Enter.</p>
+                        <p data-i18n="t-step-3">3. Zkopírujte příkaz níže, vložte ho do Terminálu (Cmd + V) a stiskněte Enter.</p>
+                    </div>
+
+                    <div class="terminal-block">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">Terminal - bash</span>
+                        </div>
+                        <div class="terminal-body">
+                            <code id="install-cmd">cd /tmp && curl -L -o RentUP_macOS.zip "https://github.com/xadam1/RentUP/releases/latest/download/RentUP_macOS.zip" && unzip -q -o RentUP_macOS.zip && (xattr -cr RentUP.app 2&gt;/dev/null || true) && rm -rf /Applications/RentUP.app && mv RentUP.app /Applications/ && open /Applications/RentUP.app</code>
+                        </div>
+                    </div>
+                    <div class="download-button-wrapper">
+                        <button id="copy-btn" class="primary-btn" onclick="copyCommand()" data-i18n="t-copy-cmd">Kopírovat příkaz</button>
+                    </div>
+                </div>
+
+                <!-- Windows Content -->
+                <div id="os-windows" class="os-content">
+                    <p class="os-desc" data-i18n="t-win-desc">Stáhněte si ZIP archiv, rozbalte jej kamkoliv v počítači a spusťte soubor <code>RentUP.exe</code>. Žádná zdlouhavá instalace není potřeba.</p>
+                    <div class="download-button-wrapper">
+                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP_Windows.zip" class="primary-btn download-link">
+                            <i class="fa-solid fa-download"></i>
+                            <span data-i18n="t-win-btn">Stáhnout pro Windows (.zip)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Linux Content -->
+                <div id="os-linux" class="os-content">
+                    <p class="os-desc" data-i18n="t-lin-desc">Stáhněte si archiv pro Linux, rozbalte jej a spusťte binární soubor <code>RentUP</code>.</p>
+                    <div class="download-button-wrapper">
+                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP_Linux.zip" class="primary-btn download-link">
+                            <i class="fa-solid fa-download"></i>
+                            <span data-i18n="t-lin-btn">Stáhnout pro Linux (.zip)</span>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        
+        <footer>
+            <div class="credits">
+                <img src="assets/RentUP_Icon.png" alt="RentUP Icon" class="footer-icon">
+                <p data-i18n="t-footer-credits">Vytvořili Jan Adam & Mojmír Dvořáček</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

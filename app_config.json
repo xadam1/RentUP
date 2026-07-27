@@ -1,0 +1,6 @@
+{
+  "minimumVersion": "1.0.0",
+  "killSwitchActive": false,
+  "message": "A critical security update is required to continue using RentUP. Please update your application.",
+  "downloadUrl": "https://github.com/your-github-username/RentUP/releases/latest"
+}
