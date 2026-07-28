@@ -1,24 +1,33 @@
 <div align="center">
-  <img src="RentUP_Logo_Dark.png" alt="RentUP Logo" width="200"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/RentUP_Logo_White.png">
+    <source media="(prefers-color-scheme: light)" srcset="RentUP_Logo_Dark.png">
+    <img alt="RentUP Logo" src="RentUP_Logo_Dark.png" width="200">
+  </picture>
+  
   <h1>RentUP</h1>
   <p>Modern and efficient property management software.</p>
+
+  <a href="https://xadam1.github.io/RentUP/">
+    <img src="https://img.shields.io/badge/Otevřít%20Webovou%20Stránku-0052FF?style=for-the-badge&logo=Web&logoColor=white" alt="Webová stránka" />
+  </a>
 </div>
 
-## 🌐 Official Website & Documentation
+## 🌐 Oficiální web a dokumentace
 
-Visit our official website for comprehensive documentation, guides, and download links:
-👉 **[RentUP Official Website](https://your-github-username.github.io/RentUP/)** *(Note: replace with your actual GitHub pages URL)*
+Navštivte náš oficiální web, kde najdete veškerou dokumentaci a odkazy ke stažení:
+👉 **[Oficiální web RentUP](https://xadam1.github.io/RentUP/)**
 
-## 📥 Downloads & Updates
+## 📥 Ke stažení & Aktualizace
 
-This repository serves as the official distribution channel for RentUP. All stable releases and auto-updates are securely hosted here via [Velopack](https://velopack.io/).
+Tento repozitář slouží jako oficiální distribuční kanál aplikace RentUP. Všechny stabilní verze a automatické aktualizace jsou zde bezpečně hostovány pomocí [Velopack](https://velopack.io/).
 
-- **Latest Release:** [Download here](https://github.com/your-github-username/RentUP/releases/latest)
-- **Update Channel:** Managed automatically by Velopack.
+- **Nejnovější verze:** [Stáhnout zde](https://github.com/xadam1/RentUP/releases/latest)
+- **Aktualizační kanál:** Spravováno automaticky aplikací.
 
-## 🔐 Security & Kill Switch
+## 🔐 Bezpečnost & Kill Switch
 
-To ensure all users have the most secure and up-to-date experience, RentUP incorporates an active version monitoring system. If your client falls behind critical security updates, a built-in safety lock screen will prompt you to update, keeping your data and the ecosystem secure.
+Pro zajištění maximální bezpečnosti obsahuje RentUP integrovaný systém kontroly verzí. Pokud je vaše aplikace příliš zastaralá nebo probíhá údržba, integrovaný bezpečnostní zámek vás vyzve k aktualizaci.
 
 ---
-*Note: The source code for RentUP is maintained privately. This repository is strictly for documentation, public issue tracking, and release distribution.*
+*Poznámka: Zdrojový kód pro RentUP (RentUP-App) je udržován privátně. Tento repozitář (RentUP) slouží výhradně k hostování dokumentace (GitHub Pages), distribuci aktualizací a hlášení chyb.*
