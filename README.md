@@ -6,28 +6,23 @@
   </picture>
   
   <h1>RentUP</h1>
-  <p>Modern and efficient property management software.</p>
-
+  <p>Interní nástroj pro správu portfolia</p>
+  <br>
   <a href="https://xadam1.github.io/RentUP/">
-    <img src="https://img.shields.io/badge/Otevřít%20Webovou%20Stránku-0052FF?style=for-the-badge&logo=Web&logoColor=white" alt="Webová stránka" />
+    <img src="https://img.shields.io/badge/Stáhnout_RentUP-0052FF?style=for-the-badge&logo=appledata&logoColor=white" alt="Stáhnout RentUP" />
   </a>
+  <br><br>
 </div>
 
-## 🌐 Oficiální web a dokumentace
+## 🌐 Oficiální web a instalace
 
-Navštivte náš oficiální web, kde najdete veškerou dokumentaci a odkazy ke stažení:
+Nejnovější verzi aplikace pro macOS, Windows i Linux, včetně návodu k instalaci, najdete vždy na našem oficiálním webu. Klikněte na velké modré tlačítko výše nebo na odkaz níže:
+
 👉 **[Oficiální web RentUP](https://xadam1.github.io/RentUP/)**
 
-## 📥 Ke stažení & Aktualizace
+## 📥 Aktualizace
 
-Tento repozitář slouží jako oficiální distribuční kanál aplikace RentUP. Všechny stabilní verze a automatické aktualizace jsou zde bezpečně hostovány pomocí [Velopack](https://velopack.io/).
-
-- **Nejnovější verze:** [Stáhnout zde](https://github.com/xadam1/RentUP/releases/latest)
-- **Aktualizační kanál:** Spravováno automaticky aplikací.
-
-## 🔐 Bezpečnost & Kill Switch
-
-Pro zajištění maximální bezpečnosti obsahuje RentUP integrovaný systém kontroly verzí. Pokud je vaše aplikace příliš zastaralá nebo probíhá údržba, integrovaný bezpečnostní zámek vás vyzve k aktualizaci.
+Tento repozitář slouží jako oficiální distribuční kanál pro aplikaci RentUP. Všechny aktualizace jsou spravovány plně automaticky pomocí technologie [Velopack](https://velopack.io/). Aplikace si sama detekuje, stáhne a nainstaluje nové verze na pozadí, abyste měli vždy k dispozici ty nejnovější funkce.
 
 ---
-*Poznámka: Zdrojový kód pro RentUP (RentUP-App) je udržován privátně. Tento repozitář (RentUP) slouží výhradně k hostování dokumentace (GitHub Pages), distribuci aktualizací a hlášení chyb.*
+*Poznámka: Zdrojový kód aplikace (RentUP-App) je udržován privátně. Tento veřejný repozitář slouží výhradně k hostování webové prezentace, distribuci automatických aktualizací a hlášení chyb.*

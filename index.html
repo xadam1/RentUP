@@ -34,10 +34,10 @@
                 't-step-2': '2. Napište <strong>Terminál</strong> a stiskněte Enter.',
                 't-step-3': '3. Zkopírujte příkaz níže, vložte ho do Terminálu (Cmd + V) a stiskněte Enter.',
                 't-copy-cmd': 'Kopírovat příkaz',
-                't-win-desc': 'Stáhněte si ZIP archiv, rozbalte jej kamkoliv v počítači a spusťte soubor <code>RentUP.exe</code>. Žádná zdlouhavá instalace není potřeba.',
-                't-win-btn': 'Stáhnout pro Windows (.zip)',
-                't-lin-desc': 'Stáhněte si archiv pro Linux, rozbalte jej a spusťte binární soubor <code>RentUP</code>.',
-                't-lin-btn': 'Stáhnout pro Linux (.zip)',
+                't-win-desc': 'Stáhněte si instalátor <code>RentUP-win-Setup.exe</code> a spusťte jej. Aplikace se sama nainstaluje a spustí.',
+                't-win-btn': 'Stáhnout pro Windows (.exe)',
+                't-lin-desc': 'Stáhněte si balíček pro Linux, nastavte mu práva ke spuštění (např. <code>chmod +x RentUP.AppImage</code>) a spusťte jej.',
+                't-lin-btn': 'Stáhnout pro Linux (.AppImage)',
                 't-footer-credits': 'Vytvořili Jan Adam & Mojmír Dvořáček'
             },
             'en': {
@@ -64,10 +64,10 @@
                 't-step-2': '2. Type <strong>Terminal</strong> and press Enter.',
                 't-step-3': '3. Copy the command below, paste it into the Terminal (Cmd + V) and press Enter.',
                 't-copy-cmd': 'Copy command',
-                't-win-desc': 'Download the ZIP archive, extract it anywhere on your computer, and run the <code>RentUP.exe</code> file. No tedious installation is needed.',
-                't-win-btn': 'Download for Windows (.zip)',
-                't-lin-desc': 'Download the archive for Linux, extract it, and run the <code>RentUP</code> binary.',
-                't-lin-btn': 'Download for Linux (.zip)',
+                't-win-desc': 'Download the installer <code>RentUP-win-Setup.exe</code> and run it. The application will automatically install and launch.',
+                't-win-btn': 'Download for Windows (.exe)',
+                't-lin-desc': 'Download the Linux package, set execution permissions (e.g., <code>chmod +x RentUP.AppImage</code>), and run it.',
+                't-lin-btn': 'Download for Linux (.AppImage)',
                 't-footer-credits': 'Created by Jan Adam & Mojmír Dvořáček'
             }
         };
@@ -231,7 +231,7 @@
                             <span class="terminal-title">Terminal - bash</span>
                         </div>
                         <div class="terminal-body">
-                            <code id="install-cmd">cd /tmp && curl -L -o RentUP_macOS.zip "https://github.com/xadam1/RentUP/releases/latest/download/RentUP_macOS.zip" && unzip -q -o RentUP_macOS.zip && (xattr -cr RentUP.app 2&gt;/dev/null || true) && rm -rf /Applications/RentUP.app && mv RentUP.app /Applications/ && open /Applications/RentUP.app</code>
+                            <code id="install-cmd">curl -L -o /tmp/RentUP-Setup.pkg "https://github.com/xadam1/RentUP/releases/latest/download/RentUP-osx-Setup.pkg" &amp;&amp; xattr -c /tmp/RentUP-Setup.pkg &amp;&amp; open /tmp/RentUP-Setup.pkg</code>
                         </div>
                     </div>
                     <div class="download-button-wrapper">
@@ -241,22 +241,22 @@
 
                 <!-- Windows Content -->
                 <div id="os-windows" class="os-content">
-                    <p class="os-desc" data-i18n="t-win-desc">Stáhněte si ZIP archiv, rozbalte jej kamkoliv v počítači a spusťte soubor <code>RentUP.exe</code>. Žádná zdlouhavá instalace není potřeba.</p>
+                    <p class="os-desc" data-i18n="t-win-desc">Stáhněte si instalátor <code>RentUP-win-Setup.exe</code> a spusťte jej. Aplikace se sama nainstaluje a spustí.</p>
                     <div class="download-button-wrapper">
-                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP_Windows.zip" class="primary-btn download-link">
+                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP-win-Setup.exe" class="primary-btn download-link">
                             <i class="fa-solid fa-download"></i>
-                            <span data-i18n="t-win-btn">Stáhnout pro Windows (.zip)</span>
+                            <span data-i18n="t-win-btn">Stáhnout pro Windows (.exe)</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Linux Content -->
                 <div id="os-linux" class="os-content">
-                    <p class="os-desc" data-i18n="t-lin-desc">Stáhněte si archiv pro Linux, rozbalte jej a spusťte binární soubor <code>RentUP</code>.</p>
+                    <p class="os-desc" data-i18n="t-lin-desc">Stáhněte si balíček pro Linux, nastavte mu práva ke spuštění (např. <code>chmod +x RentUP.AppImage</code>) a spusťte jej.</p>
                     <div class="download-button-wrapper">
-                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP_Linux.zip" class="primary-btn download-link">
+                        <a href="https://github.com/xadam1/RentUP/releases/latest/download/RentUP.AppImage" class="primary-btn download-link">
                             <i class="fa-solid fa-download"></i>
-                            <span data-i18n="t-lin-btn">Stáhnout pro Linux (.zip)</span>
+                            <span data-i18n="t-lin-btn">Stáhnout pro Linux (.AppImage)</span>
                         </a>
                     </div>
                 </div>
