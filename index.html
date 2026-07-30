@@ -231,7 +231,7 @@
                             <span class="terminal-title">Terminal - bash</span>
                         </div>
                         <div class="terminal-body">
-                            <code id="install-cmd">cd /tmp &amp;&amp; curl -L -o RentUP_macOS.zip "https://github.com/xadam1/RentUP/releases/latest/download/RentUP_macOS.zip" &amp;&amp; unzip -q -o RentUP_macOS.zip &amp;&amp; rm -rf /Applications/RentUP.app &amp;&amp; mv RentUP.app /Applications/ &amp;&amp; (xattr -cr /Applications/RentUP.app 2&gt;/dev/null || true) &amp;&amp; codesign --force --deep --sign - /Applications/RentUP.app &amp;&amp; open /Applications/RentUP.app &amp;&amp; kill -9 $PPID</code>
+                            <code id="install-cmd">cd /tmp &amp;&amp; curl -L -o RentUP_macOS.zip "https://github.com/xadam1/RentUP/releases/latest/download/RentUP_macOS.zip" &amp;&amp; unzip -q -o RentUP_macOS.zip &amp;&amp; rm -rf /Applications/RentUP.app &amp;&amp; mv RentUP.app /Applications/ &amp;&amp; chmod +x /Applications/RentUP.app/Contents/MacOS/RentUP &amp;&amp; (xattr -cr /Applications/RentUP.app 2&gt;/dev/null || true) &amp;&amp; codesign --force --deep --sign - /Applications/RentUP.app &amp;&amp; open /Applications/RentUP.app &amp;&amp; kill -9 $PPID</code>
                         </div>
                     </div>
                     <div class="download-button-wrapper">
